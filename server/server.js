@@ -4,8 +4,14 @@ const cors = require('cors');
 
 app.use(cors());
 
+app.use(express.static(path.resolve(__dirname, '../client/dist')));
+
 app.get('/api', (req, res) => {
   res.json({ users: ['user1', 'user2', 'user3'] });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
 });
 
 app.listen(5000, () => {
