@@ -6,7 +6,8 @@
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "build": "cd client && npm i && npm run build"
+    "build client": "cd client && npm i && npm run build",
+    "build": "concurrently --kill-others-on-fail \"npm run server\" \"npm build client \""
   },
   "keywords": [],
   "author": "",
