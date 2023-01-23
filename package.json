@@ -6,7 +6,7 @@
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "start-server": "cd server && npm start",
+    "start-server": "cd server && npm install && npm start",
     "build-client": "cd client && npm install && npm run build",
     "build": "npm run build-client && npm run start-server"
   },
