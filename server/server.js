@@ -1,18 +1,23 @@
 const path = require('path');
-const cors = require('cors');
 const express = require('express');
 const app = express();
 
-app.use(cors());
-
 app.use(express.static(path.resolve(__dirname, '../dist')));
+
+app.get('/', (req, res) => {
+  res.json({
+    welcome: 'this is the server, go to /api to get data.',
+  });
+});
 
 app.get('/api', (req, res) => {
   res.json({ users: ['user1', 'user2', 'user3'] });
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../dist', 'index.html'));
+app.all('*', (req, res) => {
+  res.status(500).json({
+    message: "there's nothing here, go back to / or /api please.",
+  });
 });
 
 app.listen(5000, () => {
