@@ -12,7 +12,7 @@ app.get('/api', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../dist', 'index.html'));
 });
 
 app.listen(5000, () => {
