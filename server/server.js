@@ -5,7 +5,7 @@ const app = express();
 
 app.use(cors());
 
-app.use(express.static(path.resolve(__dirname, '../client/dist')));
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.get('/api', (req, res) => {
   res.json({ users: ['user1', 'user2', 'user3'] });
